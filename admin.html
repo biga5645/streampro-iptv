@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamPro — لوحة التحكم</title>
+  <meta name="description" content="StreamPro IPTV - Admin Management Dashboard" />
+  <meta name="theme-color" content="#07071a" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2307071a'/><polygon points='38,30 75,50 38,70' fill='%23FFD700'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<!-- ===== LOGIN SCREEN ===== -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-logo">
+      <span class="logo-icon">▶</span>
+      <span>Stream<span class="gold">Pro</span></span>
+    </div>
+    <h2>لوحة التحكم</h2>
+    <p class="login-sub">أدخل بياناتك للدخول</p>
+    <div class="form-group">
+      <label>اسم المستخدم</label>
+      <input type="text" id="loginUser" placeholder="admin" autocomplete="username" />
+    </div>
+    <div class="form-group">
+      <label>كلمة المرور</label>
+      <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" />
+    </div>
+    <div class="login-error" id="loginError">اسم المستخدم أو كلمة المرور غير صحيحة</div>
+    <button class="btn-login" id="loginBtn">دخول</button>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div class="dashboard" id="dashboard" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">▶</span>
+      <span>Stream<span class="gold">Pro</span></span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-tab="overview">
+        <span class="nav-icon">📊</span><span>نظرة عامة</span>
+      </button>
+      <button class="nav-item" data-tab="pricing">
+        <span class="nav-icon">💰</span><span>الأسعار والباقات</span>
+      </button>
+      <button class="nav-item" data-tab="testimonials">
+        <span class="nav-icon">⭐</span><span>آراء العملاء</span>
+      </button>
+      <button class="nav-item" data-tab="faq">
+        <span class="nav-icon">❓</span><span>الأسئلة الشائعة</span>
+      </button>
+      <button class="nav-item" data-tab="settings">
+        <span class="nav-icon">⚙️</span><span>الإعدادات</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="index.html" target="_blank" class="btn-view-site">
+        <span>🌐</span> عرض الموقع
+      </a>
+      <button class="btn-logout" id="logoutBtn">
+        <span>🚪</span> خروج
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+      <div class="topbar-title" id="topbarTitle">نظرة عامة</div>
+      <div class="topbar-actions">
+        <button class="btn-save-all" id="btnSaveAll">💾 حفظ كل التغييرات</button>
+        <div class="admin-avatar">A</div>
+      </div>
+    </header>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===== TAB: OVERVIEW ===== -->
+    <section class="tab-content active" id="tab-overview">
+      <div class="page-header">
+        <h1>مرحباً بك 👋</h1>
+        <p>إدارة كاملة لمحتوى موقع StreamPro IPTV</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="sc-icon">💰</div>
+          <div class="sc-info">
+            <span class="sc-val" id="ov-price1">$9</span>
+            <span class="sc-label">سعر الباقة الشهرية</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-icon">⭐</div>
+          <div class="sc-info">
+            <span class="sc-val" id="ov-tcount">3</span>
+            <span class="sc-label">آراء العملاء</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-icon">❓</div>
+          <div class="sc-info">
+            <span class="sc-val" id="ov-fcount">5</span>
+            <span class="sc-label">أسئلة شائعة</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-icon">📧</div>
+          <div class="sc-info">
+            <span class="sc-val" id="ov-email" style="font-size:0.85rem">contact@streampro.tv</span>
+            <span class="sc-label">إيميل التواصل</span>
+          </div>
+        </div>
+      </div>
+      <div class="overview-grid">
+        <div class="ov-card">
+          <h3>⚡ إجراءات سريعة</h3>
+          <div class="quick-actions">
+            <button class="qa-btn" data-goto="pricing">✏️ تعديل الأسعار</button>
+            <button class="qa-btn" data-goto="testimonials">➕ إضافة رأي</button>
+            <button class="qa-btn" data-goto="faq">➕ إضافة سؤال</button>
+            <button class="qa-btn" data-goto="settings">⚙️ الإعدادات</button>
+          </div>
+        </div>
+        <div class="ov-card">
+          <h3>📋 ملخص المحتوى</h3>
+          <table class="summary-table">
+            <tr><td>الباقة الشهرية</td><td class="td-val" id="sum-p1">$9/شهر</td></tr>
+            <tr><td>باقة 3 أشهر</td><td class="td-val" id="sum-p2">$22/3 أشهر</td></tr>
+            <tr><td>الباقة السنوية</td><td class="td-val" id="sum-p3">$60/سنة</td></tr>
+            <tr><td>إيميل التواصل</td><td class="td-val" id="sum-email">contact@streampro.tv</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TAB: PRICING ===== -->
+    <section class="tab-content" id="tab-pricing">
+      <div class="page-header">
+        <h1>💰 الأسعار والباقات</h1>
+        <p>عدّل أسعار الباقات الثلاث — التغييرات تنعكس فوراً على الموقع</p>
+      </div>
+      <div class="plans-grid">
+
+        <!-- Plan 1 -->
+        <div class="plan-edit-card">
+          <div class="plan-badge plan-basic">شهري</div>
+          <h3>الباقة الشهرية</h3>
+          <div class="field-group">
+            <label>السعر ($)</label>
+            <input type="number" id="p1-price" min="1" value="9" />
+          </div>
+          <div class="field-group">
+            <label>اسم الباقة</label>
+            <input type="text" id="p1-name" value="الباقة الشهرية" />
+          </div>
+          <div class="field-group">
+            <label>عدد الأجهزة</label>
+            <input type="number" id="p1-devices" min="1" max="10" value="2" />
+          </div>
+          <div class="field-group">
+            <label>نص التوفير (اتركه فارغاً لإخفائه)</label>
+            <input type="text" id="p1-save" value="" placeholder="مثال: وفر 20%" />
+          </div>
+          <div class="field-group toggle-row">
+            <label>تمييز كـ "الأكثر طلباً"</label>
+            <label class="toggle"><input type="checkbox" id="p1-popular" /><span class="toggle-slider"></span></label>
+          </div>
+          <button class="btn-plan-save" data-plan="1">💾 حفظ</button>
+        </div>
+
+        <!-- Plan 2 -->
+        <div class="plan-edit-card popular-card">
+          <div class="plan-badge plan-popular">3 أشهر ⭐</div>
+          <h3>باقة 3 أشهر</h3>
+          <div class="field-group">
+            <label>السعر ($)</label>
+            <input type="number" id="p2-price" min="1" value="22" />
+          </div>
+          <div class="field-group">
+            <label>اسم الباقة</label>
+            <input type="text" id="p2-name" value="باقة 3 أشهر" />
+          </div>
+          <div class="field-group">
+            <label>عدد الأجهزة</label>
+            <input type="number" id="p2-devices" min="1" max="10" value="3" />
+          </div>
+          <div class="field-group">
+            <label>نص التوفير</label>
+            <input type="text" id="p2-save" value="وفر 19%" />
+          </div>
+          <div class="field-group toggle-row">
+            <label>تمييز كـ "الأكثر طلباً"</label>
+            <label class="toggle"><input type="checkbox" id="p2-popular" checked /><span class="toggle-slider"></span></label>
+          </div>
+          <button class="btn-plan-save" data-plan="2">💾 حفظ</button>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="plan-edit-card">
+          <div class="plan-badge plan-annual">سنوي</div>
+          <h3>الباقة السنوية</h3>
+          <div class="field-group">
+            <label>السعر ($)</label>
+            <input type="number" id="p3-price" min="1" value="60" />
+          </div>
+          <div class="field-group">
+            <label>اسم الباقة</label>
+            <input type="text" id="p3-name" value="الباقة السنوية" />
+          </div>
+          <div class="field-group">
+            <label>عدد الأجهزة</label>
+            <input type="number" id="p3-devices" min="1" max="10" value="5" />
+          </div>
+          <div class="field-group">
+            <label>نص التوفير</label>
+            <input type="text" id="p3-save" value="وفر 44%" />
+          </div>
+          <div class="field-group toggle-row">
+            <label>تمييز كـ "الأكثر طلباً"</label>
+            <label class="toggle"><input type="checkbox" id="p3-popular" /><span class="toggle-slider"></span></label>
+          </div>
+          <button class="btn-plan-save" data-plan="3">💾 حفظ</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== TAB: TESTIMONIALS ===== -->
+    <section class="tab-content" id="tab-testimonials">
+      <div class="page-header">
+        <h1>⭐ آراء العملاء</h1>
+        <p>أضف، عدّل، أو احذف آراء العملاء التي تظهر على الموقع</p>
+      </div>
+
+      <!-- Add Form -->
+      <div class="add-card" id="testiAddCard">
+        <h3>➕ إضافة رأي جديد</h3>
+        <div class="form-row-2">
+          <div class="field-group">
+            <label>الاسم</label>
+            <input type="text" id="t-name" placeholder="أحمد ب." />
+          </div>
+          <div class="field-group">
+            <label>البلد</label>
+            <input type="text" id="t-loc" placeholder="المغرب" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label>نص الرأي</label>
+          <textarea id="t-text" rows="3" placeholder="اكتب الرأي هنا..."></textarea>
+        </div>
+        <div class="field-group">
+          <label>التقييم</label>
+          <div class="star-picker" id="starPicker">
+            <span class="star-opt active" data-val="5">★★★★★</span>
+            <span class="star-opt" data-val="4">★★★★☆</span>
+            <span class="star-opt" data-val="3">★★★☆☆</span>
+          </div>
+          <input type="hidden" id="t-stars" value="5" />
+        </div>
+        <button class="btn-add" id="btnAddTesti">إضافة الرأي</button>
+      </div>
+
+      <!-- List -->
+      <div class="items-list" id="testiList"></div>
+    </section>
+
+    <!-- ===== TAB: FAQ ===== -->
+    <section class="tab-content" id="tab-faq">
+      <div class="page-header">
+        <h1>❓ الأسئلة الشائعة</h1>
+        <p>أضف، عدّل، أو احذف الأسئلة الشائعة التي تظهر على الموقع</p>
+      </div>
+
+      <!-- Add Form -->
+      <div class="add-card">
+        <h3>➕ إضافة سؤال جديد</h3>
+        <div class="field-group">
+          <label>السؤال</label>
+          <input type="text" id="f-q" placeholder="اكتب السؤال هنا..." />
+        </div>
+        <div class="field-group">
+          <label>الجواب</label>
+          <textarea id="f-a" rows="3" placeholder="اكتب الجواب هنا..."></textarea>
+        </div>
+        <button class="btn-add" id="btnAddFaq">إضافة السؤال</button>
+      </div>
+
+      <!-- List -->
+      <div class="items-list" id="faqList"></div>
+    </section>
+
+    <!-- ===== TAB: SETTINGS ===== -->
+    <section class="tab-content" id="tab-settings">
+      <div class="page-header">
+        <h1>⚙️ الإعدادات</h1>
+        <p>إعدادات عامة للموقع</p>
+      </div>
+      <div class="settings-grid">
+
+        <div class="settings-card emailjs-card">
+          <h3>📧 إعدادات الإيميل</h3>
+          <div class="field-group">
+            <label>إيميل استقبال الطلبات</label>
+            <input type="email" id="s-email" value="contact@streampro.tv" />
+            <small>هذا الإيميل يظهر على الموقع ويستقبل طلبات الاشتراك</small>
+          </div>
+          <div class="field-group">
+            <label>اسم صاحب الموقع / الشركة</label>
+            <input type="text" id="s-brand" value="StreamPro IPTV" />
+          </div>
+          <button class="btn-settings-save" id="btnSaveEmail">💾 حفظ</button>
+
+          <div class="emailjs-section">
+            <div class="ejs-header">
+              <span class="ejs-logo">⚡</span>
+              <div>
+                <strong>ربط EmailJS — إرسال حقيقي عبر Gmail</strong>
+                <span class="ejs-badge" id="ejsBadge">غير مفعّل</span>
+              </div>
+            </div>
+            <p class="ejs-desc">يتيح لك EmailJS إرسال رسائل الاشتراك مباشرة إلى Gmail الخاص بك دون أي خادم. <a href="https://www.emailjs.com" target="_blank" rel="noopener">إنشاء حساب مجاني ←</a></p>
+
+            <div class="ejs-steps">
+              <div class="ejs-step"><span class="step-num">1</span><span>سجّل في <strong>emailjs.com</strong> ثم أضف <strong>Gmail</strong> كـ Email Service</span></div>
+              <div class="ejs-step"><span class="step-num">2</span><span>انسخ <strong>Service ID</strong> من Email Services</span></div>
+              <div class="ejs-step"><span class="step-num">3</span><span>أنشئ Template جديد وانسخ <strong>Template ID</strong></span></div>
+              <div class="ejs-step"><span class="step-num">4</span><span>انسخ <strong>Public Key</strong> من Account → API Keys</span></div>
+            </div>
+
+            <div class="ejs-template-hint">
+              <strong>📋 محتوى Template الموصى به:</strong>
+              <pre>To: {{to_email}}
+Subject: طلب اشتراك جديد من {{from_name}}
+
+الاسم: {{from_name}}
+إيميل العميل: {{reply_to}}
+الباقة: {{plan}}
+الجهاز: {{device}}
+الرسالة: {{message}}</pre>
+            </div>
+
+            <div class="form-row-2" style="gap:12px;margin-top:16px">
+              <div class="field-group">
+                <label>Service ID</label>
+                <input type="text" id="ejs-service" placeholder="service_xxxxxxx" autocomplete="off" />
+              </div>
+              <div class="field-group">
+                <label>Template ID</label>
+                <input type="text" id="ejs-template" placeholder="template_xxxxxxx" autocomplete="off" />
+              </div>
+            </div>
+            <div class="field-group">
+              <label>Public Key</label>
+              <input type="text" id="ejs-pubkey" placeholder="XXXXXXXXXXXXXXXXXXXX" autocomplete="off" />
+            </div>
+
+            <div class="ejs-actions">
+              <button class="btn-settings-save" id="btnSaveEJS">💾 حفظ إعدادات EmailJS</button>
+              <button class="btn-test-ejs" id="btnTestEJS">🧪 إرسال رسالة تجريبية</button>
+            </div>
+            <div class="ejs-status" id="ejsStatus"></div>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>🔐 تغيير كلمة المرور</h3>
+          <div class="field-group">
+            <label>كلمة المرور الحالية</label>
+            <input type="password" id="s-oldpass" placeholder="••••••••" />
+          </div>
+          <div class="field-group">
+            <label>كلمة المرور الجديدة</label>
+            <input type="password" id="s-newpass" placeholder="••••••••" />
+          </div>
+          <div class="field-group">
+            <label>تأكيد كلمة المرور الجديدة</label>
+            <input type="password" id="s-confirmpass" placeholder="••••••••" />
+          </div>
+          <button class="btn-settings-save" id="btnChangePass">🔐 تغيير كلمة المرور</button>
+        </div>
+
+        <div class="settings-card">
+          <h3>💡 معلومات</h3>
+          <div class="info-list">
+            <div class="info-row"><span>إصدار اللوحة</span><span class="info-val">v1.0</span></div>
+            <div class="info-row"><span>آخر حفظ</span><span class="info-val" id="lastSaved">—</span></div>
+            <div class="info-row"><span>إجمالي الآراء</span><span class="info-val" id="s-tcount">3</span></div>
+            <div class="info-row"><span>إجمالي الأسئلة</span><span class="info-val" id="s-fcount">5</span></div>
+          </div>
+          <div class="field-group" style="margin-top:20px">
+            <label>⚠️ إعادة تعيين كل البيانات</label>
+            <small>يحذف كل التعديلات ويعيد البيانات الافتراضية</small>
+          </div>
+          <button class="btn-danger" id="btnReset">🗑️ إعادة تعيين</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal-box">
+    <div class="modal-icon">⚠️</div>
+    <h3 id="modalTitle">هل أنت متأكد؟</h3>
+    <p id="modalMsg">هذا الإجراء لا يمكن التراجع عنه.</p>
+    <div class="modal-btns">
+      <button class="btn-modal-cancel" id="modalCancel">إلغاء</button>
+      <button class="btn-modal-confirm" id="modalConfirm">تأكيد</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box modal-wide">
+    <h3 id="editModalTitle">تعديل</h3>
+    <div id="editModalBody"></div>
+    <div class="modal-btns">
+      <button class="btn-modal-cancel" id="editModalCancel">إلغاء</button>
+      <button class="btn-modal-confirm" id="editModalSave">💾 حفظ</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="site_title">StreamPro IPTV - أفضل خدمة IPTV</title>
+  <meta name="description" content="StreamPro IPTV - Premium 4K streaming service with 20,000+ channels, movies, sports, and series with 99.9% uptime." />
+  <meta name="keywords" content="IPTV, 4K streaming, live sports, movies, series, VOD, StreamPro" />
+  <meta name="theme-color" content="#07071a" />
+
+  <!-- Open Graph & Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="StreamPro IPTV - Premium 4K Streaming Platform" />
+  <meta property="og:description" content="Over 20,000 channels in 4K quality with 99.9% uptime and 24/7 support." />
+  <meta property="og:image" content="assets/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="StreamPro IPTV - Premium 4K Streaming Platform" />
+  <meta name="twitter:description" content="Over 20,000 channels in 4K quality with 99.9% uptime and 24/7 support." />
+  <meta name="twitter:image" content="assets/preview.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2307071a'/><polygon points='38,30 75,50 38,70' fill='%23FFD700'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">▶</span>
+        <span>Stream<span class="gold">Pro</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features" data-i18n="nav_features">المميزات</a></li>
+        <li><a href="#pricing" data-i18n="nav_pricing">الأسعار</a></li>
+        <li><a href="#channels" data-i18n="nav_channels">القنوات</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">الأسئلة</a></li>
+        <li><a href="#contact" class="btn-nav" data-i18n="nav_contact">تواصل معنا</a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ar">AR</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="container hero-content">
+      <div class="hero-badge" data-i18n="hero_badge">🔥 الأفضل في المنطقة</div>
+      <h1 class="hero-title">
+        <span data-i18n="hero_title1">تجربة بث</span>
+        <span class="gradient-text" data-i18n="hero_title2"> لا مثيل لها</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">أكثر من 20,000 قناة بجودة 4K — أفلام، رياضة، مسلسلات من كل العالم بدون انقطاع</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">20K+</span><span class="stat-label" data-i18n="stat_channels">قناة</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">99.9%</span><span class="stat-label" data-i18n="stat_uptime">استقرار</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">4K</span><span class="stat-label" data-i18n="stat_quality">جودة</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label" data-i18n="stat_support">دعم</span></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#pricing" class="btn-primary" data-i18n="hero_cta1">ابدأ الآن</a>
+        <a href="#features" class="btn-ghost" data-i18n="hero_cta2">اكتشف المزيد</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="feat_tag">لماذا نحن؟</span>
+        <h2 data-i18n="feat_title">مميزات تجعلنا الأفضل</h2>
+        <p data-i18n="feat_sub">كل ما تحتاجه في مكان واحد بأسعار لا تُقاوم</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card fade-in">
+          <div class="feat-icon">📺</div>
+          <h3 data-i18n="feat1_title">جودة 4K Ultra HD</h3>
+          <p data-i18n="feat1_desc">استمتع بأوضح صورة ممكنة على أي جهاز — تلفاز، هاتف، تابلت</p>
+        </div>
+        <div class="feat-card fade-in">
+          <div class="feat-icon">🌍</div>
+          <h3 data-i18n="feat2_title">20,000+ قناة عالمية</h3>
+          <p data-i18n="feat2_desc">قنوات من كل أنحاء العالم — عربية، أوروبية، أمريكية، رياضية وأكثر</p>
+        </div>
+        <div class="feat-card fade-in">
+          <div class="feat-icon">⚡</div>
+          <h3 data-i18n="feat3_title">استقرار 99.9%</h3>
+          <p data-i18n="feat3_desc">خوادم قوية موزعة عالمياً تضمن بثاً متواصلاً دون تقطع</p>
+        </div>
+        <div class="feat-card fade-in">
+          <div class="feat-icon">📱</div>
+          <h3 data-i18n="feat4_title">كل الأجهزة</h3>
+          <p data-i18n="feat4_desc">يعمل على Smart TV، Android، iOS، PC، MAG، Firestick وغيرها</p>
+        </div>
+        <div class="feat-card fade-in">
+          <div class="feat-icon">🎬</div>
+          <h3 data-i18n="feat5_title">VOD ضخم</h3>
+          <p data-i18n="feat5_desc">مكتبة أفلام ومسلسلات تتجاوز 50,000 عنوان محدثة باستمرار</p>
+        </div>
+        <div class="feat-card fade-in">
+          <div class="feat-icon">🛠️</div>
+          <h3 data-i18n="feat6_title">دعم 24/7</h3>
+          <p data-i18n="feat6_desc">فريق دعم متخصص على مدار الساعة لحل أي مشكلة فوراً</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="price_tag">الأسعار</span>
+        <h2 data-i18n="price_title">باقات تناسب الجميع</h2>
+        <p data-i18n="price_sub">اختر الباقة المناسبة لك — كلها تشمل نفس الجودة والمميزات</p>
+      </div>
+      <div class="pricing-grid">
+        <!-- Monthly -->
+        <div class="price-card fade-in">
+          <div class="price-header">
+            <h3 data-i18n="plan1_name">الباقة الشهرية</h3>
+            <div class="price-amount"><span class="currency" data-i18n="currency">$</span><span class="amount">9</span><span class="period" data-i18n="per_month">/شهر</span></div>
+          </div>
+          <ul class="price-features">
+            <li data-i18n="pf_channels">✓ 20,000+ قناة</li>
+            <li data-i18n="pf_4k">✓ جودة 4K</li>
+            <li data-i18n="pf_vod">✓ VOD كامل</li>
+            <li data-i18n="pf_devices">✓ جهازان في آن واحد</li>
+            <li data-i18n="pf_support">✓ دعم 24/7</li>
+          </ul>
+          <a href="#contact" class="btn-price" data-i18n="btn_subscribe">اشترك الآن</a>
+        </div>
+        <!-- 3 Months - Popular -->
+        <div class="price-card popular fade-in">
+          <div class="popular-badge" data-i18n="popular_badge">الأكثر طلباً</div>
+          <div class="price-header">
+            <h3 data-i18n="plan2_name">باقة 3 أشهر</h3>
+            <div class="price-amount"><span class="currency" data-i18n="currency">$</span><span class="amount">22</span><span class="period" data-i18n="per_3month">/3 أشهر</span></div>
+            <div class="price-save" data-i18n="save_3m">وفر 19%</div>
+          </div>
+          <ul class="price-features">
+            <li data-i18n="pf_channels">✓ 20,000+ قناة</li>
+            <li data-i18n="pf_4k">✓ جودة 4K</li>
+            <li data-i18n="pf_vod">✓ VOD كامل</li>
+            <li data-i18n="pf_devices3">✓ 3 أجهزة في آن واحد</li>
+            <li data-i18n="pf_support">✓ دعم 24/7</li>
+          </ul>
+          <a href="#contact" class="btn-price btn-price-popular" data-i18n="btn_subscribe">اشترك الآن</a>
+        </div>
+        <!-- Yearly -->
+        <div class="price-card fade-in">
+          <div class="price-header">
+            <h3 data-i18n="plan3_name">الباقة السنوية</h3>
+            <div class="price-amount"><span class="currency" data-i18n="currency">$</span><span class="amount">60</span><span class="period" data-i18n="per_year">/سنة</span></div>
+            <div class="price-save" data-i18n="save_year">وفر 44%</div>
+          </div>
+          <ul class="price-features">
+            <li data-i18n="pf_channels">✓ 20,000+ قناة</li>
+            <li data-i18n="pf_4k">✓ جودة 4K</li>
+            <li data-i18n="pf_vod">✓ VOD كامل</li>
+            <li data-i18n="pf_devices5">✓ 5 أجهزة في آن واحد</li>
+            <li data-i18n="pf_support">✓ دعم 24/7</li>
+            <li data-i18n="pf_priority">✓ دعم أولوية</li>
+          </ul>
+          <a href="#contact" class="btn-price" data-i18n="btn_subscribe">اشترك الآن</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHANNELS ===== -->
+  <section class="channels section" id="channels">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="ch_tag">القنوات</span>
+        <h2 data-i18n="ch_title">آلاف القنوات في يدك</h2>
+        <p data-i18n="ch_sub">رياضة • أفلام • أخبار • أطفال • وثائقيات • ترفيه</p>
+      </div>
+      <div class="channels-marquee">
+        <div class="marquee-track">
+          <div class="ch-item">🏆 beIN Sports</div>
+          <div class="ch-item">⚽ MBC</div>
+          <div class="ch-item">🎬 Netflix Channels</div>
+          <div class="ch-item">📺 Al Jazeera</div>
+          <div class="ch-item">🌟 OSN</div>
+          <div class="ch-item">🎵 MTV</div>
+          <div class="ch-item">🏋️ Eurosport</div>
+          <div class="ch-item">📰 BBC Arabic</div>
+          <div class="ch-item">🎠 Disney</div>
+          <div class="ch-item">🚀 National Geo</div>
+          <div class="ch-item">🎭 Rotana</div>
+          <div class="ch-item">⚡ Sky Sports</div>
+          <div class="ch-item">🏆 beIN Sports</div>
+          <div class="ch-item">⚽ MBC</div>
+          <div class="ch-item">🎬 Netflix Channels</div>
+          <div class="ch-item">📺 Al Jazeera</div>
+          <div class="ch-item">🌟 OSN</div>
+          <div class="ch-item">🎵 MTV</div>
+          <div class="ch-item">🏋️ Eurosport</div>
+          <div class="ch-item">📰 BBC Arabic</div>
+        </div>
+      </div>
+      <div class="channels-cats fade-in">
+        <div class="cat-card"><div class="cat-icon">⚽</div><div class="cat-name" data-i18n="cat_sport">رياضة</div><div class="cat-count">500+</div></div>
+        <div class="cat-card"><div class="cat-icon">🎬</div><div class="cat-name" data-i18n="cat_movies">أفلام</div><div class="cat-count">2000+</div></div>
+        <div class="cat-card"><div class="cat-icon">📰</div><div class="cat-name" data-i18n="cat_news">أخبار</div><div class="cat-count">300+</div></div>
+        <div class="cat-card"><div class="cat-icon">🧒</div><div class="cat-name" data-i18n="cat_kids">أطفال</div><div class="cat-count">200+</div></div>
+        <div class="cat-card"><div class="cat-icon">🌍</div><div class="cat-name" data-i18n="cat_doc">وثائقيات</div><div class="cat-count">400+</div></div>
+        <div class="cat-card"><div class="cat-icon">🎭</div><div class="cat-name" data-i18n="cat_series">مسلسلات</div><div class="cat-count">1500+</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="test_tag">آراء العملاء</span>
+        <h2 data-i18n="test_title">ماذا يقول عملاؤنا</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p data-i18n="t1_text">"أفضل خدمة IPTV جربتها — الصورة نقية جداً والقنوات لا تنقطع أبداً. أنصح بها بشدة!"</p>
+          <div class="testi-author"><div class="author-avatar">أ</div><div><strong data-i18n="t1_name">أحمد ب.</strong><span data-i18n="t1_loc">المغرب</span></div></div>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p data-i18n="t2_text">"اشتركت منذ سنة ولم أندم أبداً. الدعم سريع والأسعار معقولة جداً مقارنة بالمنافسين."</p>
+          <div class="testi-author"><div class="author-avatar">س</div><div><strong data-i18n="t2_name">سارة م.</strong><span data-i18n="t2_loc">الجزائر</span></div></div>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p data-i18n="t3_text">"كل مباريات كأس العالم بجودة 4K! لا أتخيل الاشتراك في أي خدمة أخرى بعد الآن."</p>
+          <div class="testi-author"><div class="author-avatar">م</div><div><strong data-i18n="t3_name">محمد ك.</strong><span data-i18n="t3_loc">تونس</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="faq_tag">FAQ</span>
+        <h2 data-i18n="faq_title">أسئلة شائعة</h2>
+      </div>
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <button class="faq-q" data-i18n="faq1_q">كيف أبدأ الاشتراك؟</button>
+          <div class="faq-a"><p data-i18n="faq1_a">بعد اختيار باقتك وإرسال طلبك عبر نموذج التواصل، سيصلك الاشتراك خلال دقائق على بريدك الإلكتروني.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" data-i18n="faq2_q">على أي أجهزة يعمل الاشتراك؟</button>
+          <div class="faq-a"><p data-i18n="faq2_a">يعمل على Smart TV، Android، iPhone، iPad، PC، Mac، Amazon Firestick، MAG Box وأي جهاز يدعم IPTV.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" data-i18n="faq3_q">هل هناك فترة تجريبية مجانية؟</button>
+          <div class="faq-a"><p data-i18n="faq3_a">نعم! نوفر تجربة مجانية لمدة 24 ساعة. تواصل معنا وسنرسل لك خطوط تجريبية فوراً.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" data-i18n="faq4_q">ما هي طرق الدفع المتاحة؟</button>
+          <div class="faq-a"><p data-i18n="faq4_a">نقبل الدفع عبر Crypto، PayPal، بطاقات Visa/Mastercard، وتحويل بنكي. للمزيد تواصل معنا.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" data-i18n="faq5_q">ماذا لو واجهت مشكلة تقنية؟</button>
+          <div class="faq-a"><p data-i18n="faq5_a">فريق الدعم متاح 24/7 عبر الإيميل. نضمن حل أي مشكلة خلال ساعة واحدة.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="con_tag">تواصل معنا</span>
+        <h2 data-i18n="con_title">ابدأ اشتراكك اليوم</h2>
+        <p data-i18n="con_sub">أرسل طلبك وسنتواصل معك خلال دقائق</p>
+      </div>
+      <div class="contact-wrap fade-in">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="form_name">الاسم الكامل</label>
+              <input type="text" id="fname" required placeholder="" data-i18n-placeholder="ph_name" />
+            </div>
+            <div class="form-group">
+              <label data-i18n="form_email">البريد الإلكتروني</label>
+              <input type="email" id="femail" required placeholder="" data-i18n-placeholder="ph_email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_plan">الباقة المطلوبة</label>
+            <select id="fplan">
+              <option value="" data-i18n="plan_select">-- اختر الباقة --</option>
+              <option value="trial" data-i18n="plan_trial">تجربة مجانية 24 ساعة</option>
+              <option value="monthly" data-i18n="plan_monthly">شهري - $9</option>
+              <option value="3months" data-i18n="plan_3m">3 أشهر - $22</option>
+              <option value="yearly" data-i18n="plan_yearly">سنوي - $60</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_device">نوع الجهاز</label>
+            <input type="text" id="fdevice" placeholder="" data-i18n-placeholder="ph_device" />
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_msg">رسالتك (اختياري)</label>
+            <textarea id="fmsg" rows="4" placeholder="" data-i18n-placeholder="ph_msg"></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-i18n="btn_send">إرسال الطلب</button>
+          <div class="form-success" id="formSuccess">
+            <span>✓</span> <span data-i18n="form_success">تم إرسال طلبك بنجاح! سنتواصل معك قريباً.</span>
+          </div>
+        </form>
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-icon">📧</div>
+            <div>
+              <strong data-i18n="info_email_label">البريد الإلكتروني</strong>
+              <a href="mailto:contact@streampro.tv">contact@streampro.tv</a>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">⏰</div>
+            <div>
+              <strong data-i18n="info_hours_label">أوقات الدعم</strong>
+              <span data-i18n="info_hours">24 ساعة / 7 أيام</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">⚡</div>
+            <div>
+              <strong data-i18n="info_reply_label">وقت الرد</strong>
+              <span data-i18n="info_reply">أقل من ساعة</span>
+            </div>
+          </div>
+          <div class="guarantee-box">
+            <div class="g-icon">🛡️</div>
+            <div>
+              <strong data-i18n="guarantee_title">ضمان الرضا</strong>
+              <p data-i18n="guarantee_desc">إذا لم تكن راضياً خلال أول 24 ساعة، نسترجع لك المبلغ كاملاً.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-icon">▶</span><span>Stream<span class="gold">Pro</span></span></a>
+        <p data-i18n="footer_desc">أفضل خدمة IPTV في المنطقة العربية — جودة لا مثيل لها بأسعار في متناول الجميع.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer_nav">روابط سريعة</h4>
+        <a href="#features" data-i18n="nav_features">المميزات</a>
+        <a href="#pricing" data-i18n="nav_pricing">الأسعار</a>
+        <a href="#channels" data-i18n="nav_channels">القنوات</a>
+        <a href="#faq" data-i18n="nav_faq">الأسئلة</a>
+        <a href="#contact" data-i18n="nav_contact">تواصل معنا</a>
+      </div>
+      <div class="footer-legal">
+        <h4 data-i18n="footer_legal">قانوني</h4>
+        <a href="#" data-i18n="privacy">سياسة الخصوصية</a>
+        <a href="#" data-i18n="terms">شروط الاستخدام</a>
+        <a href="#" data-i18n="refund">سياسة الاسترجاع</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_copy">© 2026 StreamPro IPTV. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <a href="#home" class="scroll-top" id="scrollTop" aria-label="Back to top">↑</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

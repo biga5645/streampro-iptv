@@ -1,0 +1,36 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.directory
+
+# Editor & IDE Directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+
+# Logs and Runtime Data
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# AI Tool & CLI Temporary Folders
+HOME/
+.claude-omniroute/
+.gemini/
+
+# Node Modules & Build Outputs (if extended)
+node_modules/
+dist/
+build/
+.cache/
